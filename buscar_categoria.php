@@ -2,31 +2,36 @@
 	include 'cors_policy.php';
 	include 'conexao.php';
 
-    if($_SERVER['REQUEST_METHOD'] == 'GET'){
-        $id = $_GET['id'];
-    
-        $sql = "SELECT * FROM Categorias WHERE id = $id";
+    // if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+         // Obtém o corpo da solicitação POST
+        // $data = file_get_contents("php://input");
+
+        // Decodifica o JSON para um objeto PHP
+        // $requestData = json_decode($data);
+
+        // Agora você pode acessar os dados usando $requestData
+        // $id = $requestData->id;
+
+       $nome = 'Infraestrutura';
+       $sql = "SELECT * FROM categorias";
     
         $result = $connection->query($sql);
-    
-        if ($result->num_rows > 0) {
-            $categorias = [];
-            while ($row = $result->fetch_assoc()) {
-                array_push($categorias, $row);
-            }
-    
+        
+        if($connection ->query($sql) == true){
             $response = [
-                'categorias' => $categorias
+                'mensagem'=> 'Categoria inserida com sucesso!'
+                
             ];
-    
-        } else {
+        } else{
             $response = [
-                'categorias' => 'Nenhuma categoria encontrada!'
+                'mensagem'=> 'Erro ao inserir categoria'
             ];
         }
+
     
         echo json_encode($response);
-    }
+    // }
 ?>
 
 <!-- &nome=desenvolvimento -->
