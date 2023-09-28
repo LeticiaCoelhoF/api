@@ -14,7 +14,7 @@
         // $id = $requestData->id;
 
        $nome = 'Infraestrutura';
-       $sql = "UPDATE  FROM categorias";
+       $sql = "UPDATE FROM categorias";
     
         $result = $connection->query($sql);
         
@@ -28,8 +28,6 @@
                 'mensagem'=> 'Erro ao inserir categoria'
             ];
         }
-
-    
         echo json_encode($response);
     // }
 ?>

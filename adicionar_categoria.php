@@ -28,8 +28,6 @@
                 'mensagem'=> 'Erro ao inserir categoria'
             ];
         }
-
-    
         echo json_encode($response);
     // }
 ?>

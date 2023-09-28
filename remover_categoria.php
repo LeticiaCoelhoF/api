@@ -14,13 +14,13 @@
         // $id = $requestData->id;
 
        $nome = 'Infraestrutura';
-       $sql = "DELETE FROM categorias (0, '$nome')";
+       $sql = "DELETE FROM categorias WHERE nome ='$nome'";
     
         $result = $connection->query($sql);
         
         if($connection ->query($sql) == true){
             $response = [
-                'mensagem'=> 'Categoria inserida com sucesso!'
+                'mensagem'=> 'Categoria removida com sucesso!'
                 
             ];
         } else{
@@ -28,8 +28,6 @@
                 'mensagem'=> 'Erro ao inserir categoria'
             ];
         }
-
-    
         echo json_encode($response);
     // }
 ?>
