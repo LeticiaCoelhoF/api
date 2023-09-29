@@ -7,12 +7,13 @@
 </head>
 <body>
     <header>
-
+        <p>Categoria</p>
     </header>
-    <main>
-        <form action="" method="post"></form>
-        <label for="usuario"></label>
-        <input type="text" id="usuario">
-    </main>
+    <?php
+        include './api/adicionar_categoria.php';
+    ?>
+    <footer>
+        <p>Desenvolvido por Letícia Coelho - 2º DS(Fatec)</p>
+    </footer>
 </body>
 </html>
