@@ -17,16 +17,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="./api/adicionar_categoria.php">Adicionar</a>
+                        <a class="nav-link active" href="./adicionar_categoria.php">Adicionar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./api/atualizar_categoria.php">Atualizar</a>
+                        <a class="nav-link active" href="./atualizar_categoria.php">Atualizar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./api/buscar_categoria.php">Buscar</a>
+                        <a class="nav-link active" href="./buscar_categoria.php">Buscar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./api/remover_categoria.php">Remover</a>
+                        <a class="nav-link active" href="./remover_categoria.php">Remover</a>
                     </li>
                 </ul>
             </div>

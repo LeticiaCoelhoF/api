@@ -5,7 +5,7 @@
 
     <main>
         <form class = "container" action="index.php" method="GET">
-            <label for="./pagina_inicial/index.php ">Nome da Categoria:</label>
+            <label for="./pagina_inicial/index.php" id = "label">Nome da Categoria:</label>
             <input type="text" name ="nome"><br><br>
 
             <input type = "submit" name = "acao" value = "adicionar">
