@@ -1,35 +1,36 @@
-<?php
-	include 'cors_policy.php';
-	include 'conexao.php';
+    <?php   
+        include './pagina_inicial/header.php';
+    ?>
+     <main>
+        <form class = "container" action="index.php" method="GET">
+            <label for="./pagina_inicial/index.php ">Nome da Categoria:</label>
+            <input type="text" name ="nome"><br><br>
 
-    // if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            <input type = "submit" name = "acao" value = "adicionar">
+            <input type = "submit" name = "acao" value = "atualizar">
+            <input type = "submit" name = "acao" value = "buscar">
+            <input type = "submit" name = "acao" value = "remover">
+        </form>
+    </main>
+    <?php
+        include 'cors_policy.php';
+        include 'conexao.php';
 
-         // Obtém o corpo da solicitação POST
-        // $data = file_get_contents("php://input");
-
-        // Decodifica o JSON para um objeto PHP
-        // $requestData = json_decode($data);
-
-        // Agora você pode acessar os dados usando $requestData
-        // $id = $requestData->id;
-
-       $nome = 'Infraestrutura';
-       $sql = "DELETE FROM categorias WHERE nome ='$nome'";
-    
-        $result = $connection->query($sql);
+            $id = isset($_GET['id']) ? $_GET['id'] : null;
+            $nome = isset($_POST['nome']) ? $_POST['nome']:null;
+            $acao = isset($_POST['acao']) ? $_POST['acao']:null;
+            $sql = "DELETE FROM categorias WHERE id ='$id'";
         
-        if($connection ->query($sql) == true){
-            $response = [
-                'mensagem'=> 'Categoria removida com sucesso!'
-                
-            ];
-        } else{
-            $response = [
-                'mensagem'=> 'Erro ao inserir categoria'
-            ];
-        }
-        echo json_encode($response);
-    // }
-?>
-
+            $result = $connection->query($sql);
+            
+            if($connection->query($sql) === true || $acao == "remover"){
+                $response = ['Mensagem'=> 'Categoria removida com sucesso!'];
+            } else{
+                $response = ['Mensagem'=> 'Erro ao remover categoria.'];
+            }
+            echo json_encode($response);
+    ?>
+    <?php
+        include './pagina_inicial/footer.php';
+    ?>
 <!-- &nome=desenvolvimento -->

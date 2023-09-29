@@ -1,35 +1,41 @@
-<?php
-	include 'cors_policy.php';
-	include 'conexao.php';
+    <?php
+        include './pagina_inicial/header.php';
+    ?>
 
-    // if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    <main>
+        <form class = "container" action="index.php" method="GET">
+            <label for="./pagina_inicial/index.php ">Nome da Categoria:</label>
+            <input type="text" name ="nome"><br><br>
 
-         // Obtém o corpo da solicitação POST
-        // $data = file_get_contents("php://input");
+            <input type = "submit" name = "acao" value = "adicionar">
+            <input type = "submit" name = "acao" value = "atualizar">
+            <input type = "submit" name = "acao" value = "buscar">
+            <input type = "submit" name = "acao" value = "remover">
+        </form>
+    </main>
 
-        // Decodifica o JSON para um objeto PHP
-        // $requestData = json_decode($data);
+    <?php
+        include 'cors_policy.php';
+        include 'conexao.php';
 
-        // Agora você pode acessar os dados usando $requestData
-        // $id = $requestData->id;
+        $id = isset($_GET['id']) ? $_GET['id'] : null;
+        $nome = isset($_POST['nome']) ? $_POST['nome']:null;
+        $acao = isset($_POST['acao']) ? $_POST['acao']:null;
 
-       $nome = 'Infraestrutura';
-       $sql = "UPDATE FROM categorias";
-    
-        $result = $connection->query($sql);
+        $sql = "UPDATE categorias SET nome = '$nome' WHERE id = '$id'";
         
-        if($connection ->query($sql) == true){
-            $response = [
-                'mensagem'=> 'Categoria inserida com sucesso!'
-                
-            ];
-        } else{
-            $response = [
-                'mensagem'=> 'Erro ao inserir categoria'
-            ];
-        }
-        echo json_encode($response);
-    // }
-?>
+            $result = $connection->query($sql);
+            
+            if($connection->query($sql) === true || $acao = "atualizar"){
+                $response = ['Mensagem'=> 'Categoria atualizada com sucesso!'];
+            }else{
+                $response = ['Mensagem'=> 'Erro ao atualizar categoria.'];
+            }
+            echo json_encode($response);
+    ?>
+
+    <?php
+        include './pagina_inicial/footer.php';
+    ?>
 
 <!-- &nome=desenvolvimento -->

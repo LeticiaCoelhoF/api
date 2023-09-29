@@ -1,34 +1,40 @@
-<main>
-    <form class = "container" action="index.php" method="POST">
-        <label for="usuario">Nome da Categoria:</label>
-        <input type="text" name ="usuario"><br><br>
+    <link rel="stylesheet" href="../css/style.css">
+    <?php
+        include './pagina_inicial/header.php';
+    ?>
 
-        <input type = "submit" name = "acao" value = "adicionar">
-        <input type = "submit" name = "acao" value = "atualizar">
-        <input type = "submit" name = "acao" value = "buscar">
-        <input type = "submit" name = "acao" value = "remover">
-    </form>
-</main>
+    <main>
+        <form class = "container" action="index.php" method="GET">
+            <label for="./pagina_inicial/index.php ">Nome da Categoria:</label>
+            <input type="text" name ="nome"><br><br>
 
-<?php
-	include 'cors_policy.php';
-	include 'conexao.php';
+            <input type = "submit" name = "acao" value = "adicionar">
+            <input type = "submit" name = "acao" value = "atualizar">
+            <input type = "submit" name = "acao" value = "buscar">
+            <input type = "submit" name = "acao" value = "remover">
+        </form>
+    </main>
 
-        $nome = isset($_POST['nome']) ? $_POST['nome']:null;
-        $acao = isset($_POST['acao']) ? $_POST['acao']:null;
+    <?php
+        include 'cors_policy.php';
+        include 'conexao.php';
 
-        $sql = "INSERT INTO categorias values(0, '$nome');";
-    
-        $result = $connection->query($sql);
+            $nome = isset($_POST['nome']) ? $_POST['nome']:null;
+            $acao = isset($_POST['acao']) ? $_POST['acao']:null;
+
+            $sql = "INSERT INTO categorias values(0, '$nome');";
         
-        if($connection ->query($sql) == true){
-            if($acao=="adicionar"){
+            $result = $connection->query($sql);
+            
+            if($connection->query($sql) === true || $acao=="adicionar"){
                 $response = ['Mensagem'=> 'Categoria inserida com sucesso!'];
+            }else{
+                $response = ['Mensagem'=> 'Erro ao inserir categoria.'];
             }
-        }else{
-            $response = ['mensagem'=> 'Erro ao inserir categoria.'];
-        }
-        echo json_encode($response);
-?>
+            echo json_encode($response);
+    ?>
 
+    <?php
+        include './pagina_inicial/footer.php';
+    ?>
 <!-- &nome=desenvolvimento -->
