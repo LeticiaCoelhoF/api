@@ -7,6 +7,7 @@
         include 'conexao.php';
 
         $nome = 'Infraestrutura';
+        $id = 1;
 
         $sql = "UPDATE categorias SET nome = '$nome' WHERE id = '$id'";
         
