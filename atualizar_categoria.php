@@ -1,3 +1,4 @@
+    <main>
     <?php
         include './pagina_inicial/header.php';
     ?>
@@ -23,3 +24,4 @@
     <?php
         include './pagina_inicial/footer.php';
     ?>
+    </main>

@@ -1,3 +1,4 @@
+    <main>
     <?php
         include './pagina_inicial/header.php';
     ?>
@@ -9,8 +10,6 @@
             $nome = 'Infraestrutura';
 
             $sql = "INSERT INTO categorias values(0, '$nome');";
-        
-            $result = $connection->query($sql);
             
             if($connection->query($sql) === true){
                 $response = ['Mensagem'=> 'Categoria inserida com sucesso!'];
@@ -23,3 +22,4 @@
     <?php
         include './pagina_inicial/footer.php';
     ?>
+    </main>
