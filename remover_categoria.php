@@ -7,8 +7,7 @@
         include 'conexao.php';
 
             $nome = 'Infraestrutura';
-            $id = 1;
-            $sql = "DELETE FROM categorias WHERE id ='$id'";
+            $sql = "DELETE FROM categorias WHERE nome = '$nome'";
         
             $result = $connection->query($sql);
             

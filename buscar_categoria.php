@@ -7,7 +7,7 @@
         include 'conexao.php';
 
             $nome = 'Infraestrutura';
-            $sql = "SELECT * FROM categorias";
+            $sql = "SELECT * FROM categorias WHERE nome = '$nome'";
             
             $result = $connection->query($sql);
             

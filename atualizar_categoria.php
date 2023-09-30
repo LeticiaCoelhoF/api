@@ -7,9 +7,8 @@
         include 'conexao.php';
 
         $nome = 'Infraestrutura';
-        $id = 1;
 
-        $sql = "UPDATE categorias SET nome = '$nome' WHERE id = '$id'";
+        $sql = "UPDATE categorias SET nome = '$nome' WHERE nome = '$nome'";
         
             $result = $connection->query($sql);
             
