@@ -16,14 +16,12 @@
         include 'cors_policy.php';
         include 'conexao.php';
 
-            $id = isset($_GET['id']) ? $_GET['id'] : null;
-            $nome = isset($_POST['nome']) ? $_POST['nome']:null;
-            $acao = isset($_POST['acao']) ? $_POST['acao']:null;
+            $nome = 'Infraestrutura';
             $sql = "DELETE FROM categorias WHERE id ='$id'";
         
             $result = $connection->query($sql);
             
-            if($connection->query($sql) === true || $acao == "remover"){
+            if($connection->query($sql) === true){
                 $response = ['Mensagem'=> 'Categoria removida com sucesso!'];
             } else{
                 $response = ['Mensagem'=> 'Erro ao remover categoria.'];
@@ -33,4 +31,3 @@
     <?php
         include './pagina_inicial/footer.php';
     ?>
-<!-- &nome=desenvolvimento -->
